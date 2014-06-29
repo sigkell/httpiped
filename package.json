@@ -1,0 +1,29 @@
+{
+  "name": "httpiped",
+  "version": "0.1.0",
+  "description": "turn http.Server instances into readable streams",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/expr/httpiped.git"
+  },
+  "keywords": [
+    "http",
+    "readable",
+    "stream",
+    "server",
+    "pipe"
+  ],
+  "author": "Fionn Kelleher <me@fionn.co>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/expr/httpiped/issues"
+  },
+  "homepage": "https://github.com/expr/httpiped",
+  "dependencies": {
+    "readable-stream": "^1.0.27-1"
+  }
+}
