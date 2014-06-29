@@ -1,15 +1,22 @@
 var Readable = require("readable-stream").Readable;
 var util = require("util");
+var http = require("http");
 
-var HTTPiped = function(instance) {
+var HTTPiped = function(server) {
+    if (!(server instanceof http.Server))
+        throw new Error("http.Server required");
+
     Readable.call(this, {
         objectMode: true,
         highWaterMark: 0
     });
-    this.instance = instance;
 
-    this.instance.on("request", function(req, res) {
+    server.on("request", function(req, res) {
         this.push({req: req, res: res});
+    }.bind(this));
+
+    server.on("close", function() {
+        this.push(null);
     }.bind(this));
 }
 
